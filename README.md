@@ -8,7 +8,7 @@ We will use the jQuery library for JavaScript.
 
 We will use D3 for our data models.
 
-The outside API we will be using is Yahoo Finance.  As a strech goal, time permitting, we will use StockTwits.
+The outside API we will be using is Markit On Demand.  As a strech goal, time permitting, we will use StockTwits.
 
 We will use tools such as Trello for user stories.  Git & GitHub for version control.  RoboMongo for database visualization.  Draw.io for wire frames and prezi.com for our pitch deck presentation.
 
