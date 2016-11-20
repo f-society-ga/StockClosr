@@ -10,7 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
+mongoose.connect('mongodb://localhost:27017/stockclosr')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
