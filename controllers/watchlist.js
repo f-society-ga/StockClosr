@@ -16,8 +16,6 @@ module.exports = {
 
 function index(req, res, next) {
   res.render('../views/pages/watchlist.ejs')
-  
-
 }
 
 function show(){
