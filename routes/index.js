@@ -15,6 +15,7 @@ router.get('/', function(req, res) {
   res.render('index', {user: req.user});
 });
 
+
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'] }
@@ -49,7 +50,7 @@ router.get('/', function(req, res, next) {
 
 
 //Watchlist
-router.get('/api/watchlist', watchListController.index)
+router.get('/watchlist', watchListController.index)
 router.post('/api/watchlist', watchListController.create)
 
 router.get('/api/watchlist/:stockid', function(req, res, next){

@@ -14,9 +14,9 @@ module.exports = {
 };
 
 
-function index(req, res, next){
-  res.setHeader('Content-Type', 'application/json')
-  res.send(JSON.stringify({data:'content'}));
+function index(req, res, next) {
+  res.render('../views/pages/watchlist.ejs')
+  
 
 }
 
