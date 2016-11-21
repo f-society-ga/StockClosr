@@ -1,17 +1,11 @@
 var mongoose = require('mongoose');
 
-var env = require('./environment');
+mongoose.connect(process.env.DATABASE_URL);
 
-var dbUri = env.MONGOLAB_URI ||
-        'mongodb://localhost/' + env.SAFE_TITLE;
-        console.log(dbUri);
-if(!env.MONGOLAB_URI) {
-  require('net').connect(27017, 'localhost').on('err', function() {
-    console.log("You must bow.")
-    process.exit(0);
-  })
-}
+// database connection event
 
-mongoose.connect(dbUri);
+mongoose.connection.once('open', function(cb) {
+  console.log(`Mongoose connected to: ${process.env.DATABASE_URL}`);
+});
 
 module.exports = mongoose;

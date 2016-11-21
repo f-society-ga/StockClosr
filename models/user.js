@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var userSchema = mongoose.Schema({
   name: {type: String, required: true },
   email: {type: String, required: true},
+  googleId: String,
   stocks: []
 });
 //   stocks: [{type: mongoose.Schema.Types.ObjectId, ref: 'Stock'}]

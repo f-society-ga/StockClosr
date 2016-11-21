@@ -32,8 +32,11 @@
 								</ul>
 							</li>
 							<li><a href="elements.html">Elements</a></li>
-              <li><a href="#" class="button special">Log In</a></li>
-							<li><a href="#" class="button special">Sign Up</a></li>
+              <% if (user) { %>
+              <li><a href="/logout">Logout</a></li>
+              <% } else { %>
+              <li><a href="/auth/google">Login with Google</a></li>
+              <% } %>
 						</ul>
 					</nav>
 				</header>
