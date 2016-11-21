@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
 
 
 //Watchlist
-router.get('/api/watchlist', watchListController.index)
+router.get('/watchlist', watchListController.index)
 router.post('/api/watchlist', watchListController.create)
 
 router.get('/api/watchlist/:stockid', function(req, res, next){
