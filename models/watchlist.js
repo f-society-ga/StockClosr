@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
-
-var stockSchema = mongoose.Schema({
+var watchlistSchema = mongoose.Schema({
   symbol: {type: String, required: true},
   closingGuess: {type: Number},
-  lastGuess: {lastGuess: Date}
+  lastGuess: {type: Date}
 })
+
 
 // var stockSchema = mongoose.Schema({
 //   current: {type: Number},
@@ -15,7 +15,7 @@ var stockSchema = mongoose.Schema({
 //   todaysPrediction: {type: Number}
 // });
 
-var Stock = mongoose.model('Stock', stockSchema);
+// var Stock = mongoose.model('Stock', stockSchema);
 
 var predictionSchema = mongoose.Schema({
   closingPrice: {type: Number},
@@ -23,6 +23,6 @@ var predictionSchema = mongoose.Schema({
 })
 
 var Prediction = mongoose.model('Prediction', predictionSchema)
-
-module.exports = Stock;
-// module.exports = Prediction;
+var WatchList = mongoose.model('WatchList', watchlistSchema)
+// module.exports = Stock;
+module.exports = WatchList;

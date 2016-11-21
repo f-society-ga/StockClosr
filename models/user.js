@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var stock = require('../models/stock')
+
 
 // var watchlistSchema = mongoose.Schema({
 //   stocks: {type: String}
@@ -8,10 +8,11 @@ var stock = require('../models/stock')
 var userSchema = mongoose.Schema({
   name: {type: String, required: true },
   email: {type: String, required: true},
-  stocks: [{'symbol': String, 'closingGuess': Number, 'lastGuess': Date}]
+  stocks: []
 });
 //   stocks: [{type: mongoose.Schema.Types.ObjectId, ref: 'Stock'}]
 // });
+//  stocks: [{'symbol': String, 'closingGuess': Number, 'lastGuess': Date}]
 
 var User = mongoose.model('User', userSchema);
 
