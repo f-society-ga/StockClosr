@@ -2,13 +2,11 @@
 
 ###Technologies Used
 
-Our main coding languages will be JavaScript, HTML5, and CSS3.  We will mount these on the Node.js + Express framework.  
+JavaScript: Node.js, Express.js, jQuery
+HTML5
+CCS + Sass
 
-We will use the jQuery library for JavaScript.  
-
-We will use D3 for our data models.
-
-The outside API we will be using is Markit On Demand.  As a strech goal, time permitting, we will use StockTwits.
+APIs: Markit On Demand.  As a strech goal, time permitting, we will use StockTwits.
 
 We will use tools such as Trello for user stories.  Git & GitHub for version control.  RoboMongo for database visualization.  Draw.io for wire frames and prezi.com for our pitch deck presentation.
 
