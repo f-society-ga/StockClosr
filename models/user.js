@@ -8,6 +8,7 @@ var stock = require('../models/stock')
 var userSchema = mongoose.Schema({
   name: {type: String, required: true },
   email: {type: String, required: true},
+  googleId: String, 
   stocks: [{'symbol': String, 'closingGuess': Number, 'lastGuess': Date}]
 });
 //   stocks: [{type: mongoose.Schema.Types.ObjectId, ref: 'Stock'}]

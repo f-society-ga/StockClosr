@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var User = require('../models/user');
 var Stock = require('../models/stock');
 var http = require('http');
@@ -7,7 +8,27 @@ var http = require('http');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { user: req.user });
+});
+
+router.get('/auth/google', passport.authenticate(
+  'google',
+  { scope: ['profile', 'email'] }
+));
+
+// Google OAuth callback route
+router.get('/oauth2callback', passport.authenticate(
+  'google',
+  {
+    successRedirect : '/',
+    failureRedirect : '/'
+  }
+));
+
+// OAuth logout route
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 
@@ -76,8 +97,5 @@ router.get('/api/users', function(req, res, next){
 
   })
 })
-
-
-
 
 module.exports = router;

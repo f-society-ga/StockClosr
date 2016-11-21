@@ -5,6 +5,15 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+  <a href="" class="brand-logo left">WDI Student Fun Facts</a>
+<!-- new html below -->
+      <ul>
+      <$ if (user) { $>
+      <li><a href="/logout">Logout</a></li>
+      <$ } else { $>
+      <li><a href="/auth/google">Login with Google</a></li>
+      <$ } $>
+      </ul>
     <h1>stockclosr.com</h1>
     <p>Welcome to World.</p>
   </body>
