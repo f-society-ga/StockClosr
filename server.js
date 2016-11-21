@@ -11,8 +11,11 @@ var passport = require('passport');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// load the env vars
+require('dotenv').load();
+
 var app = express();
-mongoose.connect('mongodb://localhost:27017/stockclosr')
+mongoose.connect('mongodb://localhost:27017/stockclosr'); 
 require('./config/passport');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
