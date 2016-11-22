@@ -24,5 +24,4 @@ var stockHelper = {
     })
   }
 };
-
 module.exports = stockHelper

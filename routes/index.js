@@ -37,7 +37,7 @@ router.get('/logout', function(req, res){
 
 var watchListController = require('../controllers/watchlist')
 
-
+var usersController = require('../controllers/users')
 
 
 
@@ -46,6 +46,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 /*              */
+
+
+
+
+
+router.get('/user', usersController.userShow)
+
+
 
 
 //Watchlist

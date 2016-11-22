@@ -15,7 +15,7 @@ module.exports = {
 
 
 function index(req, res, next) {
-  res.render('../views/pages/watchlist.ejs')
+  res.render('pages/watchlist.ejs', {user: req.user})
 }
 
 function show(){
