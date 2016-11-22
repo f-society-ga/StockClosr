@@ -8,10 +8,14 @@
 	<head>
 		<title>Stock Information</title>
 		<meta charset="utf-8" />
+
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="/css/main.css" />
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css" />
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
@@ -32,6 +36,8 @@
 				<div id="main" class="wrapper style1">
 					<div class="container">
 						<header class="major">
+
+							<div id="clock">CLOCK</div>
 							<h2>TICKER SYMBOL</h2>
 							<p>Company Name</p>
 						</header>
@@ -46,12 +52,12 @@
 
 
 
-										<h4>Alternate</h4>
+										<h4>Price Info</h4>
 										<ul class="alt">
 											<li>Opening Price:</li>
 											<li>Last Close:</li>
 											<li>Current:</li>
-											<li>Closing Prediction:</li>
+											<li>Closing Prediction: <a class="waves-effect waves-light btn" href="#modal1">Predict</a></li>
 											<li>Closing Avg. Guess:</li>
 										</ul>
 
@@ -84,15 +90,34 @@
 
 		</div>
 
+		<div id="modal1" class="modal">
+	    <div class="modal-content">
+	      <h4>Stock Prediction</h4>
+	      <p>Please Enter Your Guess for the closing price of STOCKTICKER</p>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+	    </div>
+	  </div>
+
 		<!-- Scripts -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/jquery.dropotron.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="/js/main.js"></script>
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.scrolly.min.js"></script>
+			<script src="/js/jquery.dropotron.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script type="text/javascript" src="js/materialize.js"></script>
+			<script src="/js/skel.min.js"></script>
+			<script src="/js/util.js"></script>
+			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/js/main.js"></script>
+			<script src="/js/moment.js"></script>
+
+			<script src="/js/countdown.min.js"></script>
+			<script src="/js/moment-countdown.min.js"></script>
+			<script src="/js/jquery.countdown.min.js"></script>
+
+
+
 
 	</body>
 </html>
