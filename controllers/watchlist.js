@@ -85,6 +85,9 @@ function destroy(req, res, next){
     res.send(JSON.stringify(arguments));
   });
 
+function showStock(req, res, next) {
+
+}
   //
 
   /*
