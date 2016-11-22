@@ -32,7 +32,7 @@
 							<form class="well form-inline">
 								<div class="row content">
 								<form class="well form-inline">
-									<input type="text" id="symbolsearch" class="input-" placeholder="Enter company name or symbol">
+									<input type="text" id="symbolSearch" class="input-" placeholder="Enter company name or symbol">
 									<span class="help-inline hide label label-info"></span>
 								</form>
 						</div>
@@ -48,13 +48,14 @@
 									  <thead>
 									    <tr>
 												<th>(Remove)</th>
-									      <th>Symbol</th>
-									      <th>Company</th>
-									      <th>Opening Price</th>
-									      <th>Last Close</th>
-									      <th>Current</th>
-									      <th>Prediction</th>
-									      <th>Closing Avg. Guess</th>
+									      <th id="tableSymbol">Symbol</th>
+									      <th id="tableCompany">Company</th>
+									      <th id="tableOpeningPrice">Opening Price</th>
+												<th id="tableCurrent">Current</th>
+									      <th id="tableHigh">High</th>
+												<th id="tableLow">Low</th>
+									      <th id="tablePrediction">Prediction</th>
+									      <th id="tableClosingAvgGuess">Closing Avg. Guess</th>
 									    </tr>
 									  </thead>
 										<tbody>
@@ -76,6 +77,7 @@
         <script src="/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="/js/main.js"></script>
+				<script src="/js/app.js"></script>
 
 
 
