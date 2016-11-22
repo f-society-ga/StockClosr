@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
 
 
 //Watchlist
-router.get('/watchlist', watchListController.index)
+router.get('/watchlist', isLoggedIn, watchListController.index)
 router.post('/api/watchlist', watchListController.create)
 
 router.get('/api/watchlist/:stockid', function(req, res, next){
@@ -80,7 +80,7 @@ router.get('/api/users', function(req, res, next){
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated() ) return next();
-  res.redirect('/auth/google');
+  res.redirect('/');
 }
 
 router.get('/stockinfo', function(req, res, next) {
