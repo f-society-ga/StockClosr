@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-
 // Use different database URIs based on whether an env var exists.
 //process.env.LOCAL_DB is in the .env file look for key, if we have heroku it will look for MONGODB_URI
 var dbUri = process.env.MONGODB_URI ||
