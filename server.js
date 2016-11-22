@@ -9,13 +9,14 @@ var session = require('express-session');
 var passport = require('passport');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+
 
 // load the env vars
 require('dotenv').load();
 
 var app = express();
-mongoose.connect('mongodb://localhost:27017/stockclosr'); 
+
+require('./config/database')
 require('./config/passport');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +38,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
