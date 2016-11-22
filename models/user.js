@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 
 
-// var watchlistSchema = mongoose.Schema({
-//   stocks: {type: String}
-// });
+var stockSchema = mongoose.Schema({
+  stockTicker: {type: String}
+});
 
 var userSchema = mongoose.Schema({
   name: {type: String, required: true },
   email: {type: String, required: true},
   googleId: String,
-  stocks: []
+  stocks: [stockSchema]
 });
 //   stocks: [{type: mongoose.Schema.Types.ObjectId, ref: 'Stock'}]
 // });
