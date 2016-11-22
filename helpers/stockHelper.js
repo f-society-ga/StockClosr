@@ -8,6 +8,7 @@ var stockHelper = {
       pathname:'/MODApis/Api/v2/Lookup/json',
       query: {input : symbol}
     }
+//http://dev.markitondemand.com/Api/v2/quote/json?symbol=AAPL
 
     var queryUrl = url.format(options);
     console.log(queryUrl)
