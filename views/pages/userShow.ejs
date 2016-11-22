@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Showpage</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav id="nav">
+        <ul>
+          <% if (user) { %>
+          <li><a href="/stockinfo">Stocks</a></li>
+          <li><a href="/watchlist">WatchList</a></li>
+          <li><a href="/logout" class="button special">Logout</a></li>
+          <% } else { %>
+          <li><a href="/auth/google" class="button special">Login with Google</a></li>
+          <% } %>
+        </ul>
+      </nav>
+    </header>
+    <h1> Welcome <%= user.name %>, to your profile! </h1>
+      <ul>
+        <li> Name: <%= user.name %> </li>
+        <li> Email: <%= user.email %> </li>
+      </ul>
+      <button> Delete My Profile </button>
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/jquery.scrolly.min.js"></script>
+      <script src="/js/jquery.dropotron.min.js"></script>
+      <script src="/js/jquery.scrollex.min.js"></script>
+      <script src="/js/skel.min.js"></script>
+      <script src="/js/util.js"></script>
+      <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+      <script src="/js/main.js"></script>
+      <script src="/js/app.js"></script>
+  </body>
+</html>
