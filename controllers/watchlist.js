@@ -16,8 +16,6 @@ module.exports = {
 
 function index(req, res, next) {
   res.render('../views/pages/watchlist.ejs')
-
-
 }
 
 function show(){
@@ -88,7 +86,7 @@ function destroy(req, res, next){
   });
 
 function showStock(req, res, next) {
-  
+
 }
   //
 
