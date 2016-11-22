@@ -83,6 +83,8 @@ function isLoggedIn(req, res, next) {
   res.redirect('/auth/google');
 }
 
-
+router.get('/stockinfo', function(req, res, next) {
+  res.render('../views/pages/stockinfo.ejs')
+})
 
 module.exports = router;
