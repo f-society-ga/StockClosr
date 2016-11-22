@@ -1,9 +1,9 @@
-var WatchList = require('../models/watchlist')
-var User = require('../models/user')
-var stockHelper = require('../helpers/stockHelper')
-var mongoose = require('mongoose')
-var _ = require('lodash')
-
+var WatchList = require('../models/watchlist');
+var User = require('../models/user');
+var stockHelper = require('../helpers/stockHelper');
+var mongoose = require('mongoose');
+var _ = require('lodash');
+var session = require('express-session');
 
 module.exports = {
   index:   index,
@@ -14,8 +14,9 @@ module.exports = {
 };
 
 
+
 function index(req, res, next) {
-  res.render('pages/watchlist.ejs', {user: req.user})
+  res.render('pages/watchlist.ejs', {user: req.user});
 }
 
 function show(){
