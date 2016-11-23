@@ -112,5 +112,6 @@ function showStock(req, res, next) {
   */
 };
 function search(req, res) {
-  stockHelper.search(req.body.searchTerm);
+  stockHelper.search(req.body.searchTerm, req.user);
+  res.redirect('/watchlist')
 }

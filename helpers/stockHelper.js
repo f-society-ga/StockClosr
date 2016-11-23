@@ -1,6 +1,7 @@
 var url = require('url');
+var mongoose = require('mongoose')
 var request = require('request');
-
+var User = require('../models/user')
 var stockHelper = {
   validateStockSymbol: function(symbol, callback){
     var options = {
@@ -24,7 +25,7 @@ var stockHelper = {
       }
     })
   },
-  search: function(searchTerm) {
+  search: function(searchTerm, user) {
     request({
       url: 'http://dev.markitondemand.com/Api/v2/Lookup/json', //URL to hit
       qs: {input: searchTerm}, //Query string data
@@ -35,9 +36,19 @@ var stockHelper = {
         } else {
           var ticker = JSON.parse(body)
           var symbol = ticker[0].Symbol
-          // view the whole searched term in terminal below 
+          // view the whole searched term in terminal below
             // console.log(response.statusCode, body);
-            console.log(ticker[0].Symbol)
+
+            // console.log(ticker[0].Symbol)
+            User.findById(user._id, function(error, user) {
+              if (error) throw error
+              user.stocks.push({stockTicker: symbol})
+              user.save(function(err) {
+                if (err) throw (err)
+                console.log(user)
+              })
+
+            })
         }
     });
   }
