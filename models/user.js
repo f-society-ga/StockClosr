@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 
 var stockSchema = mongoose.Schema({
-  stockTicker: {type: String}
+  stockTicker: {type: String},
+  closePrediction: {type: String}
 });
 
 var userSchema = mongoose.Schema({
