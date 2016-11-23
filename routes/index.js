@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
 
 
 
-
+// User Show page route
 
 router.get('/user', usersController.userShow)
 
@@ -98,5 +98,6 @@ function isLoggedIn(req, res, next) {
 router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
+router.post('/search', watchListController.search)
 
 module.exports = router;
