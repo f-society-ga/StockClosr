@@ -13,14 +13,15 @@ $(document).ready(function(){
         dataType: "json"
       }).done(function(stockJSON) {
         var stock = JSON.parse(stockJSON)
-        $('#tbody').append('<tr><td id="remove">remove</a></td><td>'+stock.Symbol+'</td><td>'+stock.Name+'</td><td>'+stock.Open+'</td><td>'+stock.LastPrice+'</td><td>'+stock.High+'</td><td>'+stock.Low+'</td><td>prediction</td><td>comm guess</td></tr>');
+        $('#tbody').append('<tr><td id="remove"><a class="button special delete" onclick="delete_stock($(this))">Remove</a></td><td>'+stock.Symbol+'</td><td>'+stock.Name+'</td><td>'+stock.Open+'</td><td>'+stock.LastPrice+'</td><td>'+stock.High+'</td><td>'+stock.Low+'</td><td>prediction</td><td>comm guess</td></tr>');
       });
     }
   });
-
-
-
 });
+
+function delete_stock(row){
+  row.closest('tr').remove();
+}
 
 function deleteTicker(e){
   var ticker = user.stocks[i].stockTicker;
