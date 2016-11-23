@@ -8,6 +8,9 @@ var http = require('http');
 
 router.get('/users', usersCtrl.index)
 
+router.get('/api/me', usersCtrl.me)
+
+
 
 /* GET home page. */
 // The root route renders our only view
@@ -37,7 +40,7 @@ router.get('/logout', function(req, res){
 
 var watchListController = require('../controllers/watchlist')
 
-
+var usersController = require('../controllers/users')
 
 
 
@@ -46,6 +49,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 /*              */
+
+
+
+
+
+router.get('/user', usersController.userShow)
+
+
 
 
 //Watchlist
@@ -58,7 +69,6 @@ router.get('/api/watchlist/:stockid', function(req, res, next){
 router.put('/api/watchlist/:symbol', watchListController.update)
 
 router.delete('/api/watchlist/:symbol', watchListController.destroy)
-
 
 
 
@@ -90,5 +100,6 @@ function isLoggedIn(req, res, next) {
 router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
+
 
 module.exports = router;

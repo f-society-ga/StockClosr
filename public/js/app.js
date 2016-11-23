@@ -1,34 +1,17 @@
-// var id = req.params.id
-//
-// $('#watchilist-search').on('submit', function(evt){
-//   evt.preventDefault();
-//   $.ajax({
-//     type: "GET",
-//     url: `http://dev.markitondemand.com/Api/v2/quote/json?symbol=${$('#ticker-request').val()}`
-//   }).done(function(stock){
-//     $('#current-price').innerHMTL(stock.LastPrice)
-//   });
-// });
-//
-// var currentPrice = $.ajax({
-//   type: "GET",
-//   url: 'http://dev.markitondemand.com/Api/v2/quote/json?symbol= ' + id + ''
-// }).done(function(stock) {
-//   $('#ul').append(stock.LastPrice);
-// });
-
 
 $(document).ready(function(){
   $.ajax({
-    url: "http://dev.markitondemand.com/Api/v2/quote/json?symbol=AAPL",
     type: "GET",
-    dataType: "json"
-  }).done(function(stock) {
-    $('#tableSymbol').html(stock.Symbol);
-    $('#tableCompany').html(stock.Name);
-    $('#tableOpeningPrice').html('Open: ' + stock.Open);
-    $('#tableCurrent').html('Current Price: ' + stock.LastPrice);
-    $('#tableHigh').html('High: ' + stock.High);
-    $('#tableLow').html('Low: ' + stock.Low);
+    url: "/api/me"
+  }).done(function(user){
+    for(var i = 0; i < user.stocks.length; i++){
+      $.ajax({
+        url: 'http://dev.markitondemand.com/Api/v2/quote/json?symbol=' + user.stocks[i].stockTicker,
+        type: "GET",
+        dataType: "json"
+      }).done(function(stock) {
+        $('#tbody').append('<tr><td>remove</td><td>'+stock.Symbol+'</td><td>'+stock.Name+'</td><td>'+stock.Open+'</td><td>'+stock.LastPrice+'</td><td>'+stock.High+'</td><td>'+stock.Low+'</td><td>prediction</td><td>comm guess</td></tr>');
+      });
+    }
   });
 });
