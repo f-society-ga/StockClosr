@@ -33,7 +33,11 @@ var stockHelper = {
         if(error) {
             console.log(error);
         } else {
-            console.log(response.statusCode, body);
+          var ticker = JSON.parse(body)
+          var symbol = ticker[0].Symbol
+          // view the whole searched term in terminal below 
+            // console.log(response.statusCode, body);
+            console.log(ticker[0].Symbol)
         }
     });
   }
