@@ -7,7 +7,7 @@ $(document).ready(function(){
   }).done(function(user){
     for(var i = 0; i < user.stocks.length; i++){
       $.ajax({
-        url: 'http://dev.markitondemand.com/Api/v2/quote/json?symbol=' + user.stocks[i].stockTicker,
+        url: '/markit/search' + user.stocks[i].stockTicker,
         type: "GET",
         dataType: "json"
       }).done(function(stock) {
