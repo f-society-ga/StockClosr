@@ -317,7 +317,6 @@
 			// clock.hide();
 		}
 	}
-
 	setInterval(updateTime, 1000);
 
 	function setupModals(){
