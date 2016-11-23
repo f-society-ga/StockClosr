@@ -12,16 +12,27 @@ $(document).ready(function(){
         dataType: "json"
       }).done(function(stock) {
         var ticker = user.stocks[i]
-        $('#tbody').append('<tr><td>remove</a></td><td>'+stock.Symbol+'</td><td>'+stock.Name+'</td><td>'+stock.Open+'</td><td>'+stock.LastPrice+'</td><td>'+stock.High+'</td><td>'+stock.Low+'</td><td>prediction</td><td>comm guess</td></tr>');
+        $('#tbody').append('<tr><td id="remove">remove</a></td><td>'+stock.Symbol+'</td><td>'+stock.Name+'</td><td>'+stock.Open+'</td><td>'+stock.LastPrice+'</td><td>'+stock.High+'</td><td>'+stock.Low+'</td><td>prediction</td><td>comm guess</td></tr>');
       });
     }
   });
+
+
+
 });
 
-// <a href="/destroy/'+ticker+'?_method=DELETE">
 
-// function deleteTicker(e){
+
+//DELETE STOCK FROM LIST
+
+// <a href="/destroy/'+ticker+'?_method=DELETE"> // need to attach this to a button, give it id="remove"
+
+//need "$pull" to remove the record from Mongo, function is in watch list controller already
+
+// function deleteTicker(){
+//   for (var i = 0; i < stocks.length; i++){
 //   var ticker = user.stocks[i].stockTicker;
+//   $('#remove').click(
 //   $.ajax({
 //     type: "DELETE",
 //     url: "/api/users/stocks/stockTicker"
@@ -29,6 +40,5 @@ $(document).ready(function(){
 //     ticker.remove()
 //     console.log(data.message)
 //   })
-// }
+// )}
 //
-// $("#remove")
