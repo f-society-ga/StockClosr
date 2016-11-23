@@ -1,4 +1,4 @@
-var WatchList = require('../models/watchlist');
+var WatchList = require('../models/stock');
 var User = require('../models/user');
 var stockHelper = require('../helpers/stockHelper');
 var mongoose = require('mongoose');

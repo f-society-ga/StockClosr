@@ -3,7 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var User = require('../models/user');
 var usersCtrl = require('../controllers/users');
-var Watchlist = require('../models/watchlist');
+var Watchlist = require('../models/stock');
 var http = require('http');
 
 router.get('/users', usersCtrl.index)
@@ -68,7 +68,7 @@ router.get('/api/watchlist/:stockid', function(req, res, next){
 })
 router.put('/api/watchlist/:symbol', watchListController.update)
 
-router.delete('/api/watchlist/:symbol', watchListController.destroy)
+// router.delete('/api/watchlist/:symbol', watchListController.destroy)
 
 
 
@@ -100,6 +100,10 @@ function isLoggedIn(req, res, next) {
 router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
+
+//stock watchlist
+// router.route('/api/users/stocks/stockTicker')
+//   .delete(usersController.destroyTicker)
 
 
 module.exports = router;
