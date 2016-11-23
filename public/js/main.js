@@ -319,13 +319,11 @@
 	}
 
 	setInterval(updateTime, 1000);
-
-
-
-
-	function setupModals(){
+		function setupModals(){
 		$("#modal1").modal();
 	}
 
 	setupModals();
+
+
 })(jQuery);
