@@ -22,6 +22,20 @@ $(document).ready(function(){
 });
 
 
+<<<<<<< HEAD
+function deleteTicker(e){
+  var ticker = user.stocks[i].stockTicker;
+  $.ajax({
+    type: "DELETE",
+    url: "/api/users/stocks/stockTicker"
+  }).done(function(data){
+    ticker.remove()
+    console.log(data.message)
+  })
+}
+
+$("#remove")
+=======
 
 //DELETE STOCK FROM LIST
 
@@ -42,3 +56,4 @@ $(document).ready(function(){
 //   })
 // )}
 //
+>>>>>>> f19e0340577deca0a8a4b58b5ceca9bc48df21a5

@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 
-
 var stockSchema = mongoose.Schema({
   stockTicker: {type: String},
   closePrediction: {type: String}
@@ -17,6 +16,5 @@ var userSchema = mongoose.Schema({
 //  stocks: [{'symbol': String, 'closingGuess': Number, 'lastGuess': Date}]
 
 var User = mongoose.model('User', userSchema);
-
 
 module.exports = User;

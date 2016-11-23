@@ -18,9 +18,11 @@
 
 			<!-- Header -->
 				<header id="header">
-					
+
 					<nav id="nav">
 						<ul>
+							<li><a href="/">Home Page </a></li>
+							<li><a href="/user">My Profile</a></li>
 							<li><a href="/logout" class="btn-small">Log Out</a></li>
 						</ul>
 					</nav>
@@ -31,10 +33,9 @@
 					<div class="container">
 						<header class="major">
 							<h1>Watch List</h1>
-							<form class="well form-inline">
+							<form class="well form-inline" action='/search' method="POST">
 								<div class="row content">
-								<form class="well form-inline">
-									<input type="text" id="symbolSearch" class="input-" placeholder="Enter company name or symbol">
+									<input type="text" name="searchTerm" id="symbolSearch" class="input" placeholder="Enter company name or symbol">
 									<span class="help-inline hide label label-info"></span>
 								</form>
 						</div>

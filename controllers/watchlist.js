@@ -10,7 +10,8 @@ module.exports = {
   show:    show,
   create:  create,
   update:  update,
-  destroy: destroy
+  destroy: destroy,
+  search: search
 };
 
 
@@ -112,3 +113,7 @@ function showStock(req, res, next) {
   })
   */
 };
+function search(req, res) {
+  stockHelper.search(req.body.searchTerm, req.user);
+  res.redirect('/watchlist')
+}
