@@ -320,6 +320,9 @@
 
 	setInterval(updateTime, 1000);
 
+
+
+
 	function setupModals(){
 		$("#modal1").modal();
 	}

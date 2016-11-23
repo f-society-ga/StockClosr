@@ -8,6 +8,9 @@ var http = require('http');
 
 router.get('/users', usersCtrl.index)
 
+router.get('/api/me', usersCtrl.me)
+
+
 
 /* GET home page. */
 // The root route renders our only view
@@ -69,7 +72,6 @@ router.delete('/api/watchlist/:symbol', watchListController.destroy)
 
 
 
-
 //Users
 router.post('/api/users', function(req, res, next){
   var user = new User({'email': 'aaa@aaa.com', 'name': 'aaa'})
@@ -99,5 +101,6 @@ router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
 router.post('/search', watchListController.search)
+
 
 module.exports = router;
