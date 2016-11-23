@@ -24,3 +24,7 @@ function userShow(req, res) {
     res.render('pages/userShow', {user: req.user})
   })
 }
+
+function destroyTicker(req, res){
+  var ticker = req.user[0]
+}
