@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 
 router.get('/auth/google', passport.authenticate(
   'google',
-  { scope: ['profile', 'email'] }
+  { scope: ['profile', 'email'], session: true }
 ));
 
 // Google OAuth callback route
@@ -52,7 +52,7 @@ router.get('/', function(req, res, next) {
 
 
 
-
+// User Show page route
 
 router.get('/user', usersController.userShow)
 router.get('/users/:id', usersController.delete)
@@ -100,6 +100,7 @@ function isLoggedIn(req, res, next) {
 router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
+router.post('/search', watchListController.search)
 
 //stock watchlist
 // router.route('/api/users/stocks/stockTicker')

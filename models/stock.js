@@ -9,6 +9,7 @@ var predictionSchema = mongoose.Schema({
 
 var Prediction = mongoose.model('Prediction', predictionSchema);
 
+//findanyupdate upsert:true, add historical quotes only if needed
 //https://docs.mongodb.com/v3.2/reference/method/db.collection.aggregate/
 var historicalQuoteSchema = mongoose.Schema({
   date: {type: Date, required: true},
