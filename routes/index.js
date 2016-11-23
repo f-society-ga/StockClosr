@@ -10,7 +10,7 @@ router.get('/users', usersCtrl.index)
 
 router.get('/api/me', usersCtrl.me)
 
-
+router.get('/markit/search/:stockTicker', usersCtrl.markit)
 
 /* GET home page. */
 // The root route renders our only view

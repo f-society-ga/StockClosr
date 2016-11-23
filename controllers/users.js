@@ -1,15 +1,24 @@
 var User = require('../models/user');
-var session = require('express-session')
+var session = require('express-session');
+var request = require('request');
 
 module.exports = {
   index: index,
   userShow: userShow,
   me: me,
-  delete: del
+  delete: del,
+  markit: markit
 }
 
 function me(req, res) {
   res.json(req.user)
+}
+
+function markit(req, res){
+    request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
+        res.json(body)
+    });
+
 }
 
 function index(req, res) {
