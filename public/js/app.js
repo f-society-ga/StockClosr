@@ -20,15 +20,15 @@ $(document).ready(function(){
 
 // <a href="/destroy/'+ticker+'?_method=DELETE">
 
-// function deleteTicker(e){
-//   var ticker = user.stocks[i].stockTicker;
-//   $.ajax({
-//     type: "DELETE",
-//     url: "/api/users/stocks/stockTicker"
-//   }).done(function(data){
-//     ticker.remove()
-//     console.log(data.message)
-//   })
-// }
-//
-// $("#remove")
+function deleteTicker(e){
+  var ticker = user.stocks[i].stockTicker;
+  $.ajax({
+    type: "DELETE",
+    url: "/api/users/stocks/stockTicker"
+  }).done(function(data){
+    ticker.remove()
+    console.log(data.message)
+  })
+}
+
+$("#remove")
