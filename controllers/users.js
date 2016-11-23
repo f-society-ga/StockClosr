@@ -15,10 +15,10 @@ function me(req, res) {
 }
 
 function markit(req, res){
-  console.log('hi')
-    request('http://dev.markitondemand.com/Api/v2/quote/json?symbol=' + user.stocks[0].stockTicker), function(stockInfo) {
-    console.log(stockInfo);
-  }
+    request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
+        res.json(body)
+    });
+
 }
 
 function index(req, res) {

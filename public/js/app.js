@@ -6,12 +6,13 @@ $(document).ready(function(){
     dataType: "json"
   }).done(function(user){
     for(var i = 0; i < user.stocks.length; i++){
+      console.log('about to ajax')
       $.ajax({
-        url: '/markit/search' + user.stocks[i].stockTicker,
+        url: '/markit/search/' + user.stocks[i].stockTicker,
         type: "GET",
         dataType: "json"
-      }).done(function(stock) {
-        var ticker = user.stocks[i]
+      }).done(function(stockJSON) {
+        var stock = JSON.parse(stockJSON)
         $('#tbody').append('<tr><td id="remove">remove</a></td><td>'+stock.Symbol+'</td><td>'+stock.Name+'</td><td>'+stock.Open+'</td><td>'+stock.LastPrice+'</td><td>'+stock.High+'</td><td>'+stock.Low+'</td><td>prediction</td><td>comm guess</td></tr>');
       });
     }
@@ -21,8 +22,6 @@ $(document).ready(function(){
 
 });
 
-
-<<<<<<< HEAD
 function deleteTicker(e){
   var ticker = user.stocks[i].stockTicker;
   $.ajax({
@@ -35,7 +34,6 @@ function deleteTicker(e){
 }
 
 $("#remove")
-=======
 
 //DELETE STOCK FROM LIST
 
@@ -56,4 +54,3 @@ $("#remove")
 //   })
 // )}
 //
->>>>>>> f19e0340577deca0a8a4b58b5ceca9bc48df21a5
