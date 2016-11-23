@@ -12,6 +12,8 @@ if (!process.env.MONGODB_URI) {
   });
 }
 
+//must delete 'mongodb://localhost/' from .env for deploy and database conflicts (duplicating data in db)
+
 mongoose.connect(dbUri);
 
 module.exports = mongoose;
