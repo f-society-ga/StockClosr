@@ -55,7 +55,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/user', usersController.userShow)
-
+router.get('/users/:id', usersController.delete)
 
 
 

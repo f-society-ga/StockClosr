@@ -24,7 +24,8 @@
         <li> Name: <%= user.name %> </li>
         <li> Email: <%= user.email %> </li>
       </ul>
-      <button> Delete My Profile </button>
+
+      <a href=<%= "/users/" + user._id %>> <button>Delete My Profile</button> </a>
       <script src="/js/jquery.min.js"></script>
       <script src="/js/jquery.scrolly.min.js"></script>
       <script src="/js/jquery.dropotron.min.js"></script>
@@ -33,6 +34,5 @@
       <script src="/js/util.js"></script>
       <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
       <script src="/js/main.js"></script>
-      <script src="/js/app.js"></script>
   </body>
 </html>
