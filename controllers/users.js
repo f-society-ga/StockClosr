@@ -8,6 +8,7 @@ module.exports = {
   me: me,
   delete: del,
   markit: markit,
+  stockInfo: stockInfo,
   destroyTicker: destroyTicker
 }
 
@@ -20,6 +21,15 @@ function markit(req, res){
         res.json(body)
     });
 
+}
+
+function stockInfo(req, res) {
+
+
+  request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
+    console.log(body)
+      res.render('pages/stockinfo', {stockInfo: JSON.parse(body)})
+  });
 }
 
 function index(req, res) {

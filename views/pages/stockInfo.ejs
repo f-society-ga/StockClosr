@@ -38,8 +38,8 @@
 						<header class="major">
 
 							<div id="clock">CLOCK</div>
-							<h2>TICKER SYMBOL</h2>
-							<p>Company Name</p>
+							<h2>TICKER: <%= stockInfo.Symbol %></h2>
+							<p><%= stockInfo.Name %></p>
 						</header>
 
 						<!-- Text -->
@@ -54,9 +54,10 @@
 
 										<h4>Price Info</h4>
 										<ul class="alt">
-											<li>Opening Price:</li>
-											<li>Last Close:</li>
-											<li>Current:</li>
+											<li>Opening Price: <%= stockInfo.Open %></li>
+											<li>Current: <%= stockInfo.LastPrice %></li>
+												<li>High: <%= stockInfo.High %></li>
+												<li>High: <%= stockInfo.Low %></li>
 											<li>Closing Prediction: <a class="waves-effect waves-light btn" href="#modal1">Predict</a></li>
 											<li>Closing Avg. Guess:</li>
 										</ul>

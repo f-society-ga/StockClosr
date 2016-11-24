@@ -12,6 +12,8 @@ router.get('/api/me', usersCtrl.me)
 
 router.get('/markit/search/:stockTicker', usersCtrl.markit)
 
+router.get('/stockinfo/:stockTicker', usersCtrl.stockInfo)
+
 /* GET home page. */
 // The root route renders our only view
 router.get('/', function(req, res) {
