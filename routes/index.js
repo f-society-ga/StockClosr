@@ -49,7 +49,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 /*              */
-
+// route to delete stock from table
+router.delete('/api/users/stocks/:tickerSymbol', usersController.destroyTicker)
 
 
 // User Show page route
