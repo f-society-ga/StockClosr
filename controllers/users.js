@@ -8,7 +8,8 @@ module.exports = {
   me: me,
   delete: del,
   markit: markit,
-  stockInfo: stockInfo
+  stockInfo: stockInfo,
+  destroyTicker: destroyTicker
 }
 
 function me(req, res) {
@@ -46,7 +47,27 @@ function userShow(req, res) {
 }
 
 function destroyTicker(req, res){
-  var ticker = req.user[0]
+  // console.log(req.user._id)
+  // console.log(req.params.tickerSymbol)
+  // User.findByIdAndUpdate(req.user._id, {
+  //   '$pull': {
+  //       'stocks':{ 'stockTicker': req.params.tickerSymbol }
+  //   }
+  // });
+  // res.json({message: 'success'})
+  User.update(
+    { "_id": req.user._id },
+    { "$pull": { "stocks": { stockTicker: req.params.tickerSymbol } } },
+    function(err, numAffected) {
+        if(err){
+            console.log(err);
+        } else {
+            res.json({message: 'success'})
+        }
+    }
+);
+
+
 }
 
 function del(req, res) {
