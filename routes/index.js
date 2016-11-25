@@ -103,8 +103,7 @@ function isLoggedIn(req, res, next) {
 router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
-router.post('/search', watchListController.search)
-
+// router.post('/search', watchListController.search)
 //stock watchlist
 // router.route('/api/users/stocks/stockTicker')
 //   .delete(usersController.destroyTicker)
