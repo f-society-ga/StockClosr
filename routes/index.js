@@ -12,6 +12,8 @@ router.get('/api/me', usersCtrl.me)
 
 router.get('/markit/search/:stockTicker', usersCtrl.markit)
 
+router.get('/stockinfo/:stockTicker', usersCtrl.stockInfo)
+
 /* GET home page. */
 // The root route renders our only view
 router.get('/', function(req, res) {
@@ -49,7 +51,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 /*              */
-
+// route to delete stock from table
+router.delete('/api/users/stocks/:tickerSymbol', usersController.destroyTicker)
 
 
 // User Show page route
