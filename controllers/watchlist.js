@@ -10,8 +10,7 @@ module.exports = {
   show:    show,
   create:  create,
   update:  update,
-  destroy: destroy,
-  search: search
+  destroy: destroy
 };
 
 
@@ -92,7 +91,7 @@ function destroy(req, res, next){
 function showStock(req, res, next) {
 
 }
-  //
+
 
   /*
   User.find({'email': 'aaa@aaa.com'}, function(err, users){
@@ -113,7 +112,3 @@ function showStock(req, res, next) {
   })
   */
 };
-function search(req, res) {
-  stockHelper.search(req.body.searchTerm, req.user);
-  res.redirect('/watchlist')
-}

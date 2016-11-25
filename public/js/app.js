@@ -19,6 +19,7 @@ $(document).ready(function(){
   });
 });
 
+
 function delete_stock(row){
   row.closest('tr').remove();
 }
