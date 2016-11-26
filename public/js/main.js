@@ -327,4 +327,11 @@
 //
 //
 //
+
+function setupModals(){
+  $("#modal1").modal();
+}
+
+setupModals();
+
 })(jQuery);
