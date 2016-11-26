@@ -57,7 +57,7 @@
 											<li>Opening Price:</li>
 											<li>Last Close:</li>
 											<li>Current:</li>
-											<li>Closing Prediction: <a class="waves-effect waves-light btn" href="#modal1">Predict</a></li>
+											<li>Closing Prediction:  <a class="waves-effect waves-light btn" href="#modal1" id="closingPrediction">Predict</a></li>
 											<li>Closing Avg. Guess:</li>
 										</ul>
 
@@ -119,20 +119,6 @@
 			<script src="/js/moment-countdown.min.js"></script>
 			<script src="/js/jquery.countdown.min.js"></script>
 
-      <script>
-        $("#enterPrediction").click(function(){
-          $.ajax({
-            url: "/api/me/prediction",
-            method: "PATCH",
-            data: {
-              predictedClosingPrice: $("#predictedClosingPrice").val()
-            },
-            success: function(data){
-              console.log(data)
-            }
-          })
-        })
-      </script>
 
 	</body>
 </html>
