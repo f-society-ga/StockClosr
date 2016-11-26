@@ -12,8 +12,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-		<link rel="stylesheet" href="css/main.css" />
+		<link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+		<link rel="stylesheet" href="../css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
@@ -38,8 +38,8 @@
 						<header class="major">
 
 							<div id="clock">CLOCK</div>
-							<h2>TICKER SYMBOL</h2>
-							<p>Company Name</p>
+							<h2>TICKER: <%= stockInfo.Symbol %></h2>
+							<p><%= stockInfo.Name %></p>
 						</header>
 
 						<!-- Text -->
@@ -108,7 +108,7 @@
 			<script src="/js/jquery.scrolly.min.js"></script>
 			<script src="/js/jquery.dropotron.min.js"></script>
 			<script src="/js/jquery.scrollex.min.js"></script>
-			<script type="text/javascript" src="js/materialize.js"></script>
+			<script type="text/javascript" src="../js/materialize.js"></script>
 			<script src="/js/skel.min.js"></script>
 			<script src="/js/util.js"></script>
 			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->

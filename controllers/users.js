@@ -9,6 +9,8 @@ module.exports = {
   delete: del,
   markit: markit,
   predict: predict
+  stockInfo: stockInfo,
+  destroyTicker: destroyTicker
 }
 
 function me(req, res) {
@@ -29,6 +31,15 @@ function markit(req, res){
 
 }
 
+function stockInfo(req, res) {
+
+
+  request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
+    console.log(body)
+      res.render('pages/stockInfo', {stockInfo: JSON.parse(body)})
+  });
+}
+
 function index(req, res) {
   User.find({}, function(err, users){
     if(err) return res.status(err.statusCode || 500).json(err)
@@ -44,7 +55,27 @@ function userShow(req, res) {
 }
 
 function destroyTicker(req, res){
-  var ticker = req.user[0]
+  // console.log(req.user._id)
+  // console.log(req.params.tickerSymbol)
+  // User.findByIdAndUpdate(req.user._id, {
+  //   '$pull': {
+  //       'stocks':{ 'stockTicker': req.params.tickerSymbol }
+  //   }
+  // });
+  // res.json({message: 'success'})
+  User.update(
+    { "_id": req.user._id },
+    { "$pull": { "stocks": { stockTicker: req.params.tickerSymbol } } },
+    function(err, numAffected) {
+        if(err){
+            console.log(err);
+        } else {
+            res.json({message: 'success'})
+        }
+    }
+);
+
+
 }
 
 function del(req, res) {
