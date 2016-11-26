@@ -8,12 +8,20 @@ module.exports = {
   me: me,
   delete: del,
   markit: markit,
+  predict: predict
   stockInfo: stockInfo,
   destroyTicker: destroyTicker
 }
 
 function me(req, res) {
   res.json(req.user)
+}
+
+function predict(req, res) {
+    console.log("updating prediction")
+    console.log(req.user)
+    console.log("prediction:", req.body)
+    res.json({msg: "updated prediction"})
 }
 
 function markit(req, res){
