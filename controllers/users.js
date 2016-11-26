@@ -8,7 +8,7 @@ module.exports = {
   me: me,
   delete: del,
   markit: markit,
-  predict: predict
+  predict: predict,
   stockInfo: stockInfo,
   destroyTicker: destroyTicker
 }
