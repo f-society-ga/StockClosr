@@ -12,10 +12,12 @@ module.exports = {
   destroyTicker: destroyTicker
 }
 
+//current user data
 function me(req, res) {
   res.json(req.user)
 }
 
+//Makes request to API from back-end then transfers data to front end for the watchlist page.
 function markit(req, res){
     request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
         res.json(body)
@@ -23,9 +25,8 @@ function markit(req, res){
 
 }
 
+//Makes a request to API for data in order to render stock show page.  Data is then transfered to front end.
 function stockInfo(req, res) {
-
-
   request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
     console.log(body)
       res.render('pages/stockInfo', {stockInfo: JSON.parse(body)})
@@ -46,15 +47,8 @@ function userShow(req, res) {
   })
 }
 
+//destroys ticker from stock array in user schema
 function destroyTicker(req, res){
-  // console.log(req.user._id)
-  // console.log(req.params.tickerSymbol)
-  // User.findByIdAndUpdate(req.user._id, {
-  //   '$pull': {
-  //       'stocks':{ 'stockTicker': req.params.tickerSymbol }
-  //   }
-  // });
-  // res.json({message: 'success'})
   User.update(
     { "_id": req.user._id },
     { "$pull": { "stocks": { stockTicker: req.params.tickerSymbol } } },
@@ -66,10 +60,9 @@ function destroyTicker(req, res){
         }
     }
 );
-
-
 }
 
+//deletes user from site
 function del(req, res) {
   if(req.user._id == req.params.id){
     User.remove({_id: req.user._id}, function(error){

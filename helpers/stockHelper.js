@@ -1,7 +1,8 @@
 var url = require('url');
-var mongoose = require('mongoose')
+var mongoose = require('mongoose');
 var request = require('request');
-var User = require('../models/user')
+var User = require('../models/user');
+
 var stockHelper = {
   validateStockSymbol: function(symbol, callback){
     var options = {
@@ -10,7 +11,6 @@ var stockHelper = {
       pathname:'/Api/v2/Quote',
       query: {symbol : symbol}
     }
-//http://dev.markitondemand.com/Api/v2/quote/json?symbol=AAPL
 
     var queryUrl = url.format(options);
     console.log(queryUrl)

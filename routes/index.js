@@ -5,21 +5,27 @@ var User = require('../models/user');
 var usersCtrl = require('../controllers/users');
 var Stock = require('../models/stock');
 var http = require('http');
+var watchListController = require('../controllers/watchlist');
+var usersController = require('../controllers/users');
+
 
 router.get('/users', usersCtrl.index)
 
+//creates a route for current user
 router.get('/api/me', usersCtrl.me)
 
+//creates a route from the front end to the back end so that a request to the api can be made without using a secure connection
 router.get('/markit/search/:stockTicker', usersCtrl.markit)
 
+//creates a route for the stock show page
 router.get('/stockinfo/:stockTicker', usersCtrl.stockInfo)
 
-/* GET home page. */
-// The root route renders our only view
+//renders the home page
 router.get('/', function(req, res) {
   res.render('index', {user: req.user});
 });
 
+//Google oauth route
 router.get('/auth/google', passport.authenticate(
   'google',
   { scope: ['profile', 'email'], session: true }
@@ -40,74 +46,36 @@ router.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-var watchListController = require('../controllers/watchlist')
-
-var usersController = require('../controllers/users')
-
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-/*              */
+
+
 // route to delete stock from table
 router.delete('/api/users/stocks/:tickerSymbol', usersController.destroyTicker)
 
 
 // User Show page route
-
 router.get('/user', usersController.userShow)
 router.get('/users/:id', usersController.delete)
 
-
-
 //Watchlist
 router.get('/watchlist', isLoggedIn, watchListController.index)
-router.post('/api/watchlist', watchListController.create)
 
-router.get('/api/watchlist/:stockid', function(req, res, next){
-  res.send('Getting stock with id of: ' + req.params.stockid)
-})
-router.put('/api/watchlist/:symbol', watchListController.update)
-
-// router.delete('/api/watchlist/:symbol', watchListController.destroy)
-
-
-
-//Users
-router.post('/api/users', function(req, res, next){
-  var user = new User({'email': 'aaa@aaa.com', 'name': 'aaa'})
-  user.save(function(err, user){
-    if (err) console.log(err);
-
-    console.log('user created!')
-
-  })
-})
-
-router.get('/api/users', function(req, res, next){
-  var users = User.find({}, function(err, users){
-    if (err) console.log(err)
-  res.send(JSON.stringify(users))
-
-
-  })
-})
-
+//If user is authenticated, redirect to root route
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated() ) return next();
   res.redirect('/');
 }
 
+//router for the stock show page
 router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
-router.post('/search', watchListController.search)
 
-//stock watchlist
-// router.route('/api/users/stocks/stockTicker')
-//   .delete(usersController.destroyTicker)
+router.post('/search', watchListController.search)
 
 
 module.exports = router;
