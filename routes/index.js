@@ -61,6 +61,10 @@ router.delete('/api/users/stocks/:tickerSymbol', usersController.destroyTicker)
 router.get('/user', usersController.userShow)
 router.get('/users/:id', usersController.delete)
 
+
+router.patch('/api/me/prediction', usersController.predict)
+
+
 //Watchlist
 router.get('/watchlist', isLoggedIn, watchListController.index)
 

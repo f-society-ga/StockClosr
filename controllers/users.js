@@ -8,6 +8,7 @@ module.exports = {
   me: me,
   delete: del,
   markit: markit,
+  predict: predict
   stockInfo: stockInfo,
   destroyTicker: destroyTicker
 }
@@ -17,7 +18,16 @@ function me(req, res) {
   res.json(req.user)
 }
 
+
 //Makes request to API from back-end then transfers data to front end for the watchlist page.
+
+function predict(req, res) {
+    console.log("updating prediction")
+    console.log(req.user)
+    console.log("prediction:", req.body)
+    res.json({msg: "updated prediction"})
+}
+
 function markit(req, res){
     request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
         res.json(body)
