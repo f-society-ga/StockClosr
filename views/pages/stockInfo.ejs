@@ -94,12 +94,12 @@
 	    <div class="modal-content">
 
 	      <p>Please Enter Your Guess for the closing price of STOCKTICKER</p><div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <input placeholder="Placeholder" id="predictedClosingPrice" type="text" class="validate">
 
         </div>
 	    </div>
 	    <div class="modal-footer">
-	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="enterPrediction">Enter</a>
 	    </div>
 	  </div>
 
@@ -114,13 +114,25 @@
 			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/js/main.js"></script>
 			<script src="/js/moment.js"></script>
-
+      <script src="/js/app.js"></script>
 			<script src="/js/countdown.min.js"></script>
 			<script src="/js/moment-countdown.min.js"></script>
 			<script src="/js/jquery.countdown.min.js"></script>
 
-
-
+      <script>
+        $("#enterPrediction").click(function(){
+          $.ajax({
+            url: "/api/me/prediction",
+            method: "PATCH",
+            data: {
+              predictedClosingPrice: $("#predictedClosingPrice").val()
+            },
+            success: function(data){
+              console.log(data)
+            }
+          })
+        })
+      </script>
 
 	</body>
 </html>

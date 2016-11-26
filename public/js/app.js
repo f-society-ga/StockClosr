@@ -34,6 +34,8 @@ function deleteTicker(e){
   })
 }
 
+
+
 $("#remove")
 
 //DELETE STOCK FROM LIST

@@ -7,11 +7,19 @@ module.exports = {
   userShow: userShow,
   me: me,
   delete: del,
-  markit: markit
+  markit: markit,
+  predict: predict
 }
 
 function me(req, res) {
   res.json(req.user)
+}
+
+function predict(req, res) {
+    console.log("updating prediction")
+    console.log(req.user)
+    console.log("prediction:", req.body)
+    res.json({msg: "updated prediction"})
 }
 
 function markit(req, res){

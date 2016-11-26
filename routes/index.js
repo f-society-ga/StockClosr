@@ -57,6 +57,7 @@ router.get('/', function(req, res, next) {
 router.get('/user', usersController.userShow)
 router.get('/users/:id', usersController.delete)
 
+router.patch('/api/me/prediction', usersController.predict)
 
 
 //Watchlist
