@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var request = require('request');
 var User = require('../models/user');
 
+
 var stockHelper = {
   validateStockSymbol: function(symbol, callback){
     var options = {
@@ -46,10 +47,10 @@ var stockHelper = {
               user.save(function(err) {
                 if (err) throw (err)
                 console.log(user)
-              })
+              });
 
-            })
-        }
+            });
+        };
     });
   }
 };

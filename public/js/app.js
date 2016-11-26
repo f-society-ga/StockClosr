@@ -1,4 +1,6 @@
 
+//Grabs current user and iterates over stocks array.  With each stock makes request to route that leads to back-end which then makes a request to third party api.
+
 $(document).ready(function(){
   $.ajax({
     type: "GET",
@@ -19,6 +21,8 @@ $(document).ready(function(){
   });
 });
 
+
+//deletes stock from database and watchlist
 function delete_stock(row){
   var tickerSymbol = row.attr('id')
   $.ajax({
@@ -28,24 +32,3 @@ function delete_stock(row){
     row.closest('tr').remove();
   })
 }
-
-
-//DELETE STOCK FROM LIST
-
-// <a href="/destroy/'+ticker+'?_method=DELETE"> // need to attach this to a button, give it id="remove"
-
-//need "$pull" to remove the record from Mongo, function is in watch list controller already
-
-// function deleteTicker(){
-//   for (var i = 0; i < stocks.length; i++){
-//   var ticker = user.stocks[i].stockTicker;
-//   $('#remove').click(
-//   $.ajax({
-//     type: "DELETE",
-//     url: "/api/users/stocks/stockTicker"
-//   }).done(function(data){
-//     ticker.remove()
-//     console.log(data.message)
-//   })
-// )}
-//
