@@ -77,8 +77,10 @@ router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
 
+
 //This route is for the watchlist search function
 router.post('/search', watchListController.search)
+
 
 
 module.exports = router;
