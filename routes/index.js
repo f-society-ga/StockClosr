@@ -9,8 +9,6 @@ var watchListController = require('../controllers/watchlist');
 var usersController = require('../controllers/users');
 
 
-router.get('/users', usersCtrl.index)
-
 //creates a route for current user
 router.get('/api/me', usersCtrl.me)
 
@@ -18,7 +16,7 @@ router.get('/api/me', usersCtrl.me)
 router.get('/markit/search/:stockTicker', usersCtrl.markit)
 
 //creates a route for the stock show page
-router.get('/stockinfo/:stockTicker', usersCtrl.stockInfo)
+router.get('/stockinfo/:stockTicker', isLoggedIn, usersCtrl.stockInfo)
 
 //renders the home page
 router.get('/', function(req, res) {
@@ -61,7 +59,7 @@ router.delete('/api/users/stocks/:tickerSymbol', usersController.destroyTicker)
 router.get('/user', usersController.userShow)
 router.get('/users/:id', usersController.delete)
 
-
+//creates a route for the prediction
 router.patch('/api/me/prediction', usersController.predict)
 
 
@@ -79,6 +77,7 @@ router.get('/stockinfo', function(req, res, next) {
   res.render('../views/pages/stockinfo.ejs')
 })
 
+//This route is for the watchlist search function
 router.post('/search', watchListController.search)
 
 

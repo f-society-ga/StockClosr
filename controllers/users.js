@@ -3,7 +3,6 @@ var session = require('express-session');
 var request = require('request');
 
 module.exports = {
-  index: index,
   userShow: userShow,
   me: me,
   delete: del,
@@ -19,8 +18,8 @@ function me(req, res) {
 }
 
 
-//Makes request to API from back-end then transfers data to front end for the watchlist page.
 
+//This function pushes predictions to the database
 function predict(req, res) {
     console.log("updating prediction")
     console.log(req.user)
@@ -28,6 +27,7 @@ function predict(req, res) {
     res.json({msg: "updated prediction"})
 }
 
+//Makes request to API from back-end then transfers data to front end for the watchlist page.
 function markit(req, res){
     request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
         res.json(body)
@@ -39,17 +39,12 @@ function markit(req, res){
 function stockInfo(req, res) {
   request('http://dev.markitondemand.com/Api/v2/quote/json?symbol='+req.params.stockTicker, function(err, response, body) {
     console.log(body)
-      res.render('pages/stockInfo', {stockInfo: JSON.parse(body)})
+      res.render('pages/stockInfo', {stockInfo: JSON.parse(body), user: req.user})
   });
 }
 
-function index(req, res) {
-  User.find({}, function(err, users){
-    if(err) return res.status(err.statusCode || 500).json(err)
-    res.render(users)
-  });
-};
 
+//This function finds the current user and passes the information to the user show page
 function userShow(req, res) {
   User.find({}, function(err, users) {
     if(err) return res.status(err.statusCode || 500).json(err)

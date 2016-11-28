@@ -23,11 +23,15 @@
 			<!-- Header -->
 				<header id="header">
 					<nav id="nav">
-						<ul>
-							<li><a href="/watchlist">Watch List</a></li>
-							<li><a href="#" class="button special">Sign Out</a></li>
-						</ul>
-					</nav>
+	          <ul>
+	            <li><a href="/watchlist">WatchList</a></li>
+	            <% if (user) { %>
+	            <li><a href="/logout" class="button special">Logout</a></li>
+	            <% } else { %>
+	            <li><a href="/auth/google" class="button special">Login with Google</a></li>
+	            <% } %>
+	          </ul>
+	        </nav>
 				</header>
 
 			<!-- Main -->
@@ -98,10 +102,12 @@
 			<script src="/js/util.js"></script>
 			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/js/main.js"></script>
+			<script src="/js/predict.js"></script>
 			<script src="/js/moment.js"></script>
-      <script src="/js/app.js"></script>
+				<script src="/js/time.js"></script>
 			<script src="/js/countdown.min.js"></script>
 			<script src="/js/moment-countdown.min.js"></script>
 			<script src="/js/jquery.countdown.min.js"></script>
+
 	</body>
 </html>
