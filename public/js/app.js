@@ -22,10 +22,8 @@ $(document).ready(function(){
 });
 
 
-<<<<<<< HEAD
-=======
+
 //deletes stock from database and watchlist
->>>>>>> c4ecace37be914a5e96c27fba8feeeea8d5e07ca
 function delete_stock(row){
   var tickerSymbol = row.attr('id')
   $.ajax({
