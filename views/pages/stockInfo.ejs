@@ -57,9 +57,8 @@
 											<li>Opening Price: <%= stockInfo.Open %></li>
 											<li>Current: <%= stockInfo.LastPrice %></li>
 												<li>High: <%= stockInfo.High %></li>
-												<li>High: <%= stockInfo.Low %></li>
+												<li>Low: <%= stockInfo.Low %></li>
 											<li>Closing Prediction: <a class="waves-effect waves-light btn" href="#modal1">Predict</a></li>
-											<li>Closing Avg. Guess:</li>
 										</ul>
 
 									</div>
@@ -94,13 +93,13 @@
 		<div id="modal1" class="modal">
 	    <div class="modal-content">
 
-	      <p>Please Enter Your Guess for the closing price of STOCKTICKER</p><div class="input-field col s6">
-          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+	      <p>Please Enter Your Guess for the closing price of <%= stockInfo.Name  %></p><div class="input-field col s6">
+          <input placeholder="Placeholder" id="predictedClosingPrice" type="text" class="validate">
 
         </div>
 	    </div>
 	    <div class="modal-footer">
-	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Enter</a>
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" id="enterPrediction">Enter</a>
 	    </div>
 	  </div>
 
@@ -115,12 +114,10 @@
 			<!--[if lte IE 8]><script src="/js/ie/respond.min.js"></script><![endif]-->
 			<script src="/js/main.js"></script>
 			<script src="/js/moment.js"></script>
-
+      <script src="/js/app.js"></script>
 			<script src="/js/countdown.min.js"></script>
 			<script src="/js/moment-countdown.min.js"></script>
 			<script src="/js/jquery.countdown.min.js"></script>
-
-
 
 
 	</body>

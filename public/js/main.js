@@ -302,6 +302,9 @@
 				._parallax();
 
 	});
+
+
+//Moment.js updates time locally by default.  UTC -5h sets clock to EST.
 	function updateTime(){
 		var clock = $("#clock");
 		var currentTime = moment().utcOffset('-05:00');
@@ -318,14 +321,17 @@
 		}
 	}
 
-	setInterval(updateTime, 1000);
-
-	function setupModals(){
-		$("#modal1").modal();
-	}
-
-	setupModals();
+	 setInterval(updateTime, 1000);
 
 
+
+
+
+
+function setupModals(){
+  $("#modal1").modal();
+}
+
+setupModals();
 
 })(jQuery);

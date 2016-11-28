@@ -1,8 +1,7 @@
-var WatchList = require('../models/stock');
+var Stock = require('../models/stock');
 var User = require('../models/user');
 var stockHelper = require('../helpers/stockHelper');
 var mongoose = require('mongoose');
-var _ = require('lodash');
 var session = require('express-session');
 
 module.exports = {
@@ -10,17 +9,12 @@ module.exports = {
   show:    show,
   create:  create,
   update:  update,
-  destroy: destroy
+  destroy: destroy,
+  search: search
 };
-
-
 
 function index(req, res, next) {
   res.render('pages/watchlist.ejs', {user: req.user});
-}
-
-function show(){
-
 }
 
 function create(req, res, next){
@@ -87,28 +81,7 @@ function destroy(req, res, next){
   });
 
 
-
-function showStock(req, res, next) {
-
+function search(req, res) {
+  stockHelper.search(req.body.searchTerm, req.user);
+  res.redirect('/watchlist');
 }
-
-
-  /*
-  User.find({'email': 'aaa@aaa.com'}, function(err, users){
-
-    var user = users[0];
-
-    _.remove(user.stocks, {'symbol': symbol})
-    console.log(user.stocks);
-    console.log({'symbol': symbol});
-    user.save(function(err, save){
-      console.log(arguments);
-      if (!err) {
-        res.send(JSON.stringify(user))
-      } else {
-        res.send(JSON.stringify({error: 'error removing stock'}));
-      }
-    })
-  })
-  */
-};
