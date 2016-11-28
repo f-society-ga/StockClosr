@@ -4007,3 +4007,14 @@
 
 
 	}
+#userNav {
+	text-decoration: none;
+	list-style-type: none;
+}
+#userDisplay {
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	margin-top: 100px;
+	border: none;
+}
