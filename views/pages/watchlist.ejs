@@ -21,8 +21,6 @@
 
 					<nav id="nav">
 						<ul>
-							<li><a href="/">Home Page </a></li>
-							<li><a href="/user">My Profile</a></li>
 							<li><a href="/logout" class="btn-small">Log Out</a></li>
 						</ul>
 					</nav>
@@ -33,7 +31,7 @@
 					<div class="container">
 						<header class="major">
 							<h1>Watch List</h1>
-							<form class="well form-inline" action='/search' method="POST">
+							<form class="well form-inline">
 								<div class="row content">
 									<input type="text" name="searchTerm" id="symbolSearch" class="input" placeholder="Enter company ticker symbol">
 									<span class="help-inline hide label label-info"></span>
@@ -50,6 +48,7 @@
 									<table id="table" class="alt">
 									  <thead>
 									    <tr>
+
 												<th>(Remove)</th>
 									      <th>Symbol</th>
 									      <th>Company</th>
