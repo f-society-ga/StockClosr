@@ -51,4 +51,4 @@ We began by addressing the issue of volatility in the stock market.  An emerging
 * Unable to lock in stock prediction after the first two hours of market being open and have it cleared out by the next day.
 * Finding a way to aggregate and display average of user's predictions on single stock.
 * Using a html template interfered with the use of Materialize.
-
+* Markit On Demand API allows limited number of API calls
